@@ -1,8 +1,8 @@
 # Views
-Views are were you output your HTML and application logic come together. In views you can use the variable data from a <a href="http://www.sectorr.co/docs/controllers" >Controller</a> and use this in your HTML. The Views are located in the <code class="language-php">app/Views</code> directory.
+Views are where your HTML and application logic come together. In views you can use the variable data from a <a href="http://www.sectorr.co/docs/controllers">Controller</a> and use this in your HTML. The Views are located in the <code class="language-php">app/Views</code> directory.
 
 ## Basic views
-Sectorr uses blade templating, this means every view has to have a <code class="language-php">.blade.php</code> extension. So a view name would be for example: <code class="language-php">welcome.blade.php</code>.
+Sectorr uses Blade templating, this means every view has to have a <code class="language-php">.blade.php</code> extension. So a view name would be for example: <code class="language-php">welcome.blade.php</code>.
 
 A basic view would look something like this:
 
@@ -28,14 +28,14 @@ Passing variables to the returned view is easily done by adding a second paramet
 
     return view('home', ['name' => 'Henk', 'age' => '20']);
 
-If you already have variables in your <a href="http://www.sectorr.co/docs/controllers" >Controller</a>, you can also use PHP's compact function. You have to use the name of the existing variables, this will create an associative array for you with the value matching the key.
+If you already have variables in your <a href="http://www.sectorr.co/docs/controllers" >Controller</a>, you can also use PHP's compact function. You have to use the name of the existing variables, which will create an associative array for you with the value matching the key.
 
     $name = 'Henk';
     $age = '20';
     
     return view('home', compact('name', 'age'));
 
-To output these variables in your view you can simply echo them:
+To output these variables in your view, you can simply echo them:
 
     <html>
       <body>
@@ -44,7 +44,7 @@ To output these variables in your view you can simply echo them:
       </body>
     </html>
 
-Of course you can also use <a href="http://www.sectorr.co/docs/blade">Blade</a> to echo your variables:
+You can also use <a href="http://www.sectorr.co/docs/blade">Blade</a> to echo your variables:
 
     <html>
       <body>
