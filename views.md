@@ -51,8 +51,8 @@ You can also use <a href="http://www.sectorr.co/docs/blade">Blade</a> to echo yo
 ```html
 <html>
   <body>
-    <h1>Welcome <code class="language-php">{{ $name }}</code></h1>
-    <p>Your age is: <code class="language-php">{{ $age }}</code></p>
+    <h1>Welcome {{ $name }}</h1>
+    <p>Your age is: {{ $age }}</p>
   </body>
 </html>
 ```
