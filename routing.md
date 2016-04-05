@@ -44,7 +44,7 @@ Next you can get the dynamic values in the controller by putting them in the par
 Passing multiple values to a route is done exactly the same, and is usually seperated by <code class="language-php">/</code>'s. Check out the route below as an example.
 
 ```php
-    Route::get('{user}/{post}', ['as' => 'user-post', 'uses' => 'PostController@getPost]);
+    Route::get('{user}/{post}', ['as' => 'user-post', 'uses' => 'PostController@getPost']);
 ```
 
 Creating a link with multiple parameters in your view is done exactly the same as you would do for a link with one dynamic parameter, except for the second array parameter in the route() helper will have the multiple values.
