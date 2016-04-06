@@ -37,7 +37,7 @@ You can also add things like your project name and description or slogan to the 
 ## Retrieving config items
 Sectorr has a very easy config class which makes retrieving config items very easy:
 
-```html
+```php
     <h1>Project title: {{ Config::get('project')['title'] }}</h1>
     <p>Project description: {{ Config::get('project')['description'] }}</p>
 ```
