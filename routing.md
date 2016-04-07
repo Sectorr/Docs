@@ -29,16 +29,20 @@ In your view you can echo out a dynamic route destination using the <code class=
 
 Next you can get the dynamic values in the controller by putting them in the parameters of the controller method, and use them to get a user for example:
 
-```php
-    class UserController extends Controller
+```phpn
+namespace App\Controllers;
+
+use App\Models\User;
+
+class UserController extends Controller
+{
+    public function profile($id)
     {
-        public function profile($id)
-        {
-            $user = User::find($id);
-            
-            return $user;
-        }
+        $user = User::find($id);
+        
+        return $user;
     }
+}
 ```
 
 Passing multiple values to a route is done exactly the same, and is usually seperated by <code class="language-php">/</code>'s. Check out the route below as an example.
@@ -56,17 +60,22 @@ Creating a link with multiple parameters in your view is done exactly the same a
 Getting multiple variables from the url in the <a href="http://www.sectorr.co/docs/controllers">controller</a> is done a little bit different.
 
 ```php
-    class UserController extends Controller
+namespace App\Controllers;
+
+use App\Models\User;
+use App\Models\Post;
+
+class UserController extends Controller
+{
+    public function profile($data)
     {
-        public function profile($data)
-        {
-            $username = $data['user'];
-            $postslug = $data['post'];
-            
-            $user = User::where('username', $username)->first();
-            $post = Post::where('slug', $postslug)->first();
-            
-            return redirect('post', ['user' => $user, 'post' => $post]);
-        }
+        $username = $data['user'];
+        $postslug = $data['post'];
+        
+        $user = User::where('username', $username)->first();
+        $post = Post::where('slug', $postslug)->first();
+        
+        return redirect('post', ['user' => $user, 'post' => $post]);
     }
+}
 ```
