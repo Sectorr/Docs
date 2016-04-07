@@ -23,7 +23,7 @@ Route::get('user/{id}', ['as' => 'profile', 'uses' => 'UserController@profile'])
 
 In your view you can echo out a dynamic route destination using the <code class="language-php">route()</code> helper as following:
 
-```html
+```php
 <a href="{{ route('profile', ['id' => 5]) }}"></a>
 ```
 
@@ -53,7 +53,7 @@ Route::get('{user}/{post}', ['as' => 'user-post', 'uses' => 'PostController@getP
 
 Creating a link with multiple parameters in your view is done exactly the same as you would do for a link with one dynamic parameter, except for the second array parameter in the route() helper will have the multiple values.
 
-```html
+```php
 <a href="{{ route('user-post', ['user' => $user->name, 'post' => $post->slug]) }}">Post</a>
 ```
 
