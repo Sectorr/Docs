@@ -48,18 +48,18 @@ class WelcomeController extends Controller
 }
 ```
 
-When using other classess like the <code class="language-php">Sectorr\Core\Auth\Auth</code> class, you will need to <code <code class="language-php">use</code> them. This is why working with a smart text editor is recommended, something like <a href="https://www.jetbrains.com/phpstorm/">PhpStorm</a>.
+When using other classess like the <code class="language-php">Sectorr\Core\Auth\Auth</code> class, you will need to <code class="language-php">use</code> them. This is why working with a smart text editor is recommended, something like <a href="https://www.jetbrains.com/phpstorm/">PhpStorm</a>.
 
 ### Using dynamic parameters
 
-When passing parameters to your controller method via the route url, you can use them by simply putting them in the controller method parameters.
+When passing parameters to your controller method via the route url, you can use them by simply putting them in the controller method parameters. It is possible to pass multiple variables to controller methods from a <a href="https://github.com/Sectorr/Docs/blob/master/routing.md"><code class="language-php">Route</code></a>.
 
 ```php
 namespace App\Controllers;
 
 class WelcomeController extends Controller
 {
-  public function home($user_id)
+  public function home($variable1)
   {
     $user = User::find($user_id);
     $user = (! empty($user) ? $user : '');
