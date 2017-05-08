@@ -27,7 +27,7 @@ class WelcomeController extends Controller
 }
 ```
 
-Every controller needs to extends the base <code class="language-php">Controller</code> class. If you need some basic functionality or variables in every controller, you can put this in the <code class="language-php">Controller</code> class. You should also define the <code class="language-php">namespace</code> of the controller, otherwise you will get a controller not found exception. The controller's methods depend on the defined method names in the <code class="language-php">app/routes.php</code> file.
+Every controller needs to extend the base <code class="language-php">Controller</code> class. If you need some basic functionality or variables in every controller, you can put this in the <code class="language-php">Controller</code> class. You should also define the <code class="language-php">namespace</code> of the controller, otherwise you will get a controller not found exception. The controller's methods depend on the defined method names in the <code class="language-php">app/routes.php</code> file.
 
 ### Returning a view with variable data
 Usually you will return a view from your controller and pass some variable data to it, what you might want to do is pass the logged in user as an object to your view:
@@ -59,14 +59,15 @@ namespace App\Controllers;
 
 class WelcomeController extends Controller
 {
-  public function home()
+  public function home($user_id)
   {
-    // Code here
+    $user = User::find($user_id);
+    $user = (! empty($user) ? $user : '');
+    
+    return view('home', ['user' => $user]);
   }
 }
 ```
-
-Every controller needs to extends the base <code class="language-php">Controller</code> class. If you need some basic functionality or variables in every controller, you can put this in the <code class="language-php">Controller</code> class. You should also define the <code class="language-php">namespace</code> of the controller, otherwise you will get a controller not found exception. The controller's methods depend on the defined method names in the <code class="language-php">app/routes.php</code> file.
 
 ### Returning a view with variable data
 Usually you will return a view from your controller and pass some variable data to it, what you might want to do is pass the logged in user as an object to your view:
